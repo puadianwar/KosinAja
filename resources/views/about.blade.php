@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>KosinAja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
 .navbar {
     width: 100%;
@@ -423,31 +428,39 @@ body, html {
     </style>
 </head>
 <body>
-    <div class="nav-container">
-        <div class="logo">
-            <img src="{{ ('img/logo.png') }}" alt="Logo" style="width: 200px; height: 80px;">
-        </div>
-        <div class="nav-links">
-            <a href="#" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Price</a>
-            <a href="#" class="nav-link">about us</a>
-            <a href="#" class="nav-link">Blog</a>
-        </div>
-        <div class="download-btn">
-            <button>download</button>
-        </div>
-        </div>
 
-        <div class="background-container">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" style="width: 200px; height: 80px;">
+            </div>
+            <div class="nav-links">
+                <a href="home" class="nav-link">Home</a>
+                <a href="price" class="nav-link">Price</a>
+                <a href="about" class="nav-link">About Us</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </div>
+            <div class="download-btn">
+                <button>Download</button>
+            </div>
+        <!-- <div class="login-btn">
+            <a href="{{ route('auth.login') }}" class="btn-getstarted" onclick="openLoginModal()">Log in</a>
+        </div> -->
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="background-container">
         <div class="content">
             <h1>Tentang KosinAja</h1>
             <p>KosinAja hadir sebagai solusi layanan jasa titip barang yang aman, praktis, dan terpercaya untuk memudahkan kebutuhan Anda.</p>
         </div>
     </div>
 
+    <!-- Benefit Section -->
     <div class="container">
-        <h1 class="main-title">Kenapa Memilih kosinaja</h1>
-        
+        <h1 class="main-title">Kenapa Memilih KosinAja</h1>
         <div class="benefits-grid">
             <div class="benefit-item">
                 <div class="benefit-content">
@@ -459,16 +472,16 @@ body, html {
                         <li>Layanan Packing Profesional</li>
                     </ul>
                 </div>
-                <img src="{{ ('img/foto2.jpg') }}" alt="Student Service" class="benefit-image">
+                <img src="img/foto2.jpg" alt="Student Service" class="benefit-image">
             </div>
 
             <div class="benefit-item">
                 <div class="benefit-content">
-                <h2 class="benefit-title">Aman dan Terpercaya</h2>
+                    <h2 class="benefit-title">Aman dan Terpercaya</h2>
                     <p class="benefit-text">Sistem keamanan berlapis untuk memastikan barang Anda sampai dengan selamat.</p>
                     <p class="benefit-text">Mitra kami terlatih untuk menangani barang dengan hati-hati.</p>
                 </div>
-                <img src="{{ ('img/foto5.jpg') }}" alt="Security" class="benefit-image">
+                <img src="img/foto5.jpg" alt="Security" class="benefit-image">
             </div>
 
             <div class="benefit-item">
@@ -478,116 +491,110 @@ body, html {
                     <p class="benefit-text">Tidak perlu ribet mencari transportasi atau repot mengemas barang.</p>
                     <p class="benefit-text">Cukup pesan melalui aplikasi atau kontak langsung, semua kebutuhan Anda akan beres!</p>
                 </div>
-                <img src="{{ ('img/foto6.jpg') }}" alt="Convenience" class="benefit-image">
+                <img src="img/foto6.jpg" alt="Convenience" class="benefit-image">
             </div>
         </div>
     </div>
 
+    <!-- Features -->
     <div class="container">
-        <h1 class="main-title">Kelebihan Kosinaja</h1>
-        
+        <h1 class="main-title">Kelebihan KosinAja</h1>
         <div class="features-grid">
             <div class="feature-item">
-            <img src="{{ ('img/foto7.png') }}" alt="Convenience" class="benefit-image">
+                <img src="img/foto7.png" alt="Pengiriman Cepat" class="benefit-image">
                 <h2 class="feature-title">Pengiriman Cepat</h2>
                 <p class="feature-text">Kami menyediakan layanan titip barang yang mudah dan terpercaya untuk berbagai kebutuhan belanja online.</p>
             </div>
-
             <div class="feature-item">
-            <img src="{{ ('img/foto8.png') }}" alt="Convenience" class="benefit-image">
+                <img src="img/foto8.png" alt="Keamanan Terjamin" class="benefit-image">
                 <h2 class="feature-title">Keamanan Terjamin</h2>
                 <p class="feature-text">Dengan berbagai pilihan pengiriman, barang Anda sampai lebih cepat dan aman.</p>
             </div>
-
             <div class="feature-item">
-                <<img src="{{ ('img/foto9.png') }}" alt="Convenience" class="benefit-image">
+                <img src="img/foto9.png" alt="Layanan Fleksibel" class="benefit-image">
                 <h2 class="feature-title">Layanan Fleksibel</h2>
                 <p class="feature-text">Kami menyediakan dukungan pelanggan yang siap membantu Anda 24/7 untuk segala keperluan.</p>
             </div>
         </div>
     </div>
+
+    <!-- Team Section -->
     <div class="container">
         <h1 class="main-title">Our Team</h1>
-        
         <div class="team-grid">
             <div class="team-member">
-                <img src="{{ ('img/team.jpg') }}" alt="Team Member" class="member-photo">
-                <h2 class="member-title">Pengiriman Cepat</h2>
-                <p class="member-role">ceo</p>
-                <p class="member-description">Kami menyediakan layanan titip barang yang mudah dan terpercaya untuk berbagai kebutuhan belanja online.</p>
+                <img src="img/team.jpg" alt="Team Member" class="member-photo">
+                <h2 class="member-title">Anwar Puadi</h2>
+                <p class="member-role">CEO</p>
+                <p class="member-description">Memimpin pengembangan strategi KosinAja secara menyeluruh.</p>
             </div>
-
             <div class="team-member">
-                <img src="{{ ('img/team.jpg') }}" alt="Team Member" class="member-photo">
-                <h2 class="member-title">Pengiriman Cepat</h2>
-                <p class="member-role">coo</p>
-                <p class="member-description">Kami menyediakan layanan titip barang yang mudah dan terpercaya untuk berbagai kebutuhan belanja online.</p>
+                <img src="img/team.jpg" alt="Team Member" class="member-photo">
+                <h2 class="member-title">Dina Safitri</h2>
+                <p class="member-role">COO</p>
+                <p class="member-description">Mengatur operasional harian dan proses logistik.</p>
             </div>
-
             <div class="team-member">
-                <img src="{{ ('img/team.jpg') }}" alt="Team Member" class="member-photo">
-                <h2 class="member-title">Pengiriman Cepat</h2>
-                <p class="member-role">cto</p>
-                <p class="member-description">Kami menyediakan layanan titip barang yang mudah dan terpercaya untuk berbagai kebutuhan belanja online.</p>
+                <img src="img/team.jpg" alt="Team Member" class="member-photo">
+                <h2 class="member-title">Rizal Kurniawan</h2>
+                <p class="member-role">CTO</p>
+                <p class="member-description">Bertanggung jawab atas sistem IT dan keamanan platform.</p>
             </div>
-
             <div class="team-member">
-                <img src="{{ ('img/team.jpg') }}" alt="Team Member" class="member-photo">
-                <h2 class="member-title">Pengiriman Cepat</h2>
-                <p class="member-role">cmo</p>
-                <p class="member-description">Kami menyediakan layanan titip barang yang mudah dan terpercaya untuk berbagai kebutuhan belanja online.</p>
+                <img src="img/team.jpg" alt="Team Member" class="member-photo">
+                <h2 class="member-title">Sinta Aulia</h2>
+                <p class="member-role">CMO</p>
+                <p class="member-description">Mengelola pemasaran dan strategi brand awareness.</p>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
-    <div class="footer-container">
-        <!-- Kiri: Logo dan Menu -->
-        <div class="footer-left">
-            <img src="img/logo.png" alt="KosinAja Logo" class="logo">
-            <h2 class="footer-title">About<span class="highlight">KosinAja</span></h2>
-            <nav class="footer-nav">
-                <a href="#">Home</a> | 
-                <a href="#">Price</a> | 
-                <a href="#">About</a> | 
-                <a href="#">Blog</a>
-            </nav>
-            <p class="copyright">© 2024 KosinAja, InaTechno.</p>
-        </div>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="img/logo.png" alt="KosinAja Logo" class="logo">
+                <h2 class="footer-title">About <span class="highlight">KosinAja</span></h2>
+                <nav class="footer-nav">
+                    <a href="#">Home</a> | 
+                    <a href="#">Price</a> | 
+                    <a href="#">About</a> | 
+                    <a href="#">Blog</a>
+                </nav>
+                <p class="copyright">© 2024 KosinAja, InaTechno.</p>
+            </div>
 
-        <!-- Tengah: Kontak -->
-        <div class="footer-middle">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="contact-text">
-                        <p>Padang timur, Marapalam indah V</p>
-                        <p><strong>No 12, Inatechno</strong></p>
+            <div class="footer-middle">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <p>Padang Timur, Marapalam Indah V</p>
+                            <p><strong>No 12, Inatechno</strong></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p class="phone"><strong>+62 821-6945-2019</strong></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p class="email">kosinajaofficial@gmail.com</p>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <p class="phone"><strong>+62 0821-6945-2019</strong></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p class="email">kosinajaofficial@gmail.com</p>
-                </div>
             </div>
-        </div>
 
-        <!-- Kanan: Tentang Perusahaan & Sosial Media -->
-        <div class="footer-right">
-            <h3 class="about-title">About the company</h3>
-            <p class="about-text">Kami menyediakan jasa titip barang, jasa angkut barang, dan jasa packing barang khusus untuk anak kos.</p>
-            <div class="social-links">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <div class="footer-right">
+                <h3 class="about-title">About the Company</h3>
+                <p class="about-text">Kami menyediakan jasa titip barang, jasa angkut barang, dan jasa packing barang khusus untuk anak kos.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-    </nav>
+    </footer>
+
 </body>
 </html>

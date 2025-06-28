@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Facades\Auth; 
 use App\Models\User; 
+use App\Models\Penitipan;
+
 
 class LoginRegisterController extends Controller
 {
@@ -21,6 +23,18 @@ class LoginRegisterController extends Controller
     public function adminHistory(){
         return view('admin.history');
     }
+    public function adminPenitipan(){
+        $data = Penitipan::all(); // ambil semua data penitipan
+        return view('admin.penitipan', compact('data'));
+    }
+    public function adminPelanggan(){
+        return view('admin.pelanggan');
+    }
+    public function tambahPenitipan()
+    {
+        return view('admin.tambah_penitipan'); // Buat file view ini
+    }
+
 
     public function postRegister(Request $request) 
 {

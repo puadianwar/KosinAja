@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\PenitipanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +16,21 @@ use App\Http\Controllers\LoginRegisterController;
 |
 */
 
-// Route::get('/', function () {
-   // return view('home');
-// });
+Route::get('home', function () {
+   return view('home');
+});
 
-//Route::get('/', function () {
-   // return view('about')->name('about');
-// }); 
+Route::get('about', function () {
+    return view('about');
+}); 
 
-// Route::get('/', function () {
-   // return view('price');
-// });
+Route::get('price', function () {
+    return view('price');
+});
 
-// Route::get('/', function () {
-   // return view('blog');
-// });
+Route::get('blog', function () {
+   return view('blog');
+});
 
 // Route::get('/', function () {
    // return view('download');
@@ -46,7 +48,23 @@ Route::middleware(['guest'])->group(function () {
 Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
    Route::get('/admin/home', [LoginRegisterController::class, 'adminHome'])->name('admin.home');
    Route::get('/admin/history', [LoginRegisterController::class, 'adminHistory'])->name('admin.history');
+   Route::get('/admin/penitipan', [LoginRegisterController::class, 'adminPenitipan'])->name('admin.penitipan');
+   Route::get('/admin/pelanggan', [LoginRegisterController::class, 'adminPelanggan'])->name('admin.pelanggan');
 });
+
+
+//Penitipan 
+
+    Route::get('/admin/tambah_penitipan', [LoginRegisterController::class, 'tambahPenitipan'])->name('admin.tambah_penitipan');
+    Route::delete('/admin/penitipan/{id}', [PenitipanController::class, 'deletPenitipan'])->name('admin.delet_penitipan');
+    // Tampilkan form edit
+    Route::get('/admin/edit_penitipan/{id}', [PenitipanController::class, 'edit'])->name('admin.edit_penitipan');
+    // Update data penitipan
+    Route::put('/admin/update_penitipan/{id}', [PenitipanController::class, 'update'])->name('admin.update_penitipan');
+    Route::get('/admin/penitipan/{id}/detail', [PenitipanController::class, 'show'])->name('admin.detail_penitipan');
+
+
+
 
 Route::group(['middleware' => ['auth', 'checklevel:user']], function () {
    Route::get('/user/home', [LoginRegisterController::class, 'userHome'])->name('user.home');

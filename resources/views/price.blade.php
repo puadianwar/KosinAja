@@ -444,6 +444,24 @@ body {
     .footer-middle {
         padding: 0;
     }
+    .btn-getstarted {
+    display: inline-block;
+    background: linear-gradient(275.89deg, #653800 39.14%, #5c3020 201%);
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.btn-getstarted:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+       
 }
 </style>
 </head>
@@ -453,15 +471,18 @@ body {
             <img src="{{ ('img/logo.png') }}" alt="Logo" style="width: 200px; height: 80px;">
         </div>
         <div class="nav-links">
-            <a href="#" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Price</a>
-            <a href="#" class="nav-link">about us</a>
-            <a href="#" class="nav-link">Blog</a>
+            <a href="home" class="nav-link">Home</a>
+            <a href="price" class="nav-link">Price</a>
+            <a href="about" class="nav-link">about us</a>
+            <a href="blog" class="nav-link">Blog</a>
         </div>
         <div class="download-btn">
             <button>download</button>
-        </div>
-        </div>
+        </div> 
+        <!-- <div class="login-btn">
+            <a href="{{ route('auth.login') }}" class="btn-getstarted" onclick="openLoginModal()">Log in</a>
+        </div> -->
+    </div>
 
         <div class="background-container">
         <div class="content">

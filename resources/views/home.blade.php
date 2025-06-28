@@ -455,14 +455,14 @@ body, html {
                 <img src="{{ ('img/logo.png') }}" alt="Logo" style="width: 200px; height: 80px;">
             </div>
             <div class="nav-links">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Price</a>
-                <a href="#" class="nav-link">about us</a>
-                <a href="#" class="nav-link">Blog</a>
+                <a href="home" class="nav-link">Home</a>
+                <a href="price" class="nav-link">Price</a>
+                <a href="about" class="nav-link">about us</a>
+                <a href="blog" class="nav-link">Blog</a>
             </div>
-            <div class="download-btn">
+            <!-- <div class="download-btn">
                 <button>download</button>
-            </div>
+            </div> -->
             <div class="login-btn">
                 <a href="{{ route('auth.login') }}" class="btn-getstarted" onclick="openLoginModal()">Log in</a>
             </div>
