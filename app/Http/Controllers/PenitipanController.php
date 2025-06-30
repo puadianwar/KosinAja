@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Penitipan;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller; // <-- Baris ini WAJIB ada!
+use App\Http\Controllers\Controller; 
 
 class PenitipanController extends Controller
 {

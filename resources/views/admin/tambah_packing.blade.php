@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tambah Data Penitipan</title>
+  <title>Tambah Data Packing</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -78,7 +78,7 @@
 <body>
 
   <div class="container">
-    <h2>Tambah Data Penitipan</h2>
+    <h2>Tambah Data Packing</h2>
 
     @if ($errors->any())
       <div class="error">
@@ -90,27 +90,21 @@
       </div>
     @endif
 
-    <form action="{{ route('admin.tambah_penitipan') }}" method="POST">
+    <form action="{{ route('admin.tambah_packing') }}" method="POST">
       @csrf
 
       <label for="nama">Nama Pelanggan</label>
       <input type="text" id="nama" name="nama" value="{{ old('nama') }}" required>
 
-      <label for="jumlah_barang">Jumlah Barang</label>
-      <input type="number" id="jumlah_barang" name="jumlah_barang" value="{{ old('jumlah_barang') }}" required>
-
-      <label for="tanggal_awal">Tanggal Mulai</label>
-      <input type="date" id="tanggal_awal" name="tanggal_awal" value="{{ old('tanggal_awal') }}" required>
-
-      <label for="tanggal_akhir">Tanggal Selesai</label>
-      <input type="date" id="tanggal_akhir" name="tanggal_akhir" value="{{ old('tanggal_akhir') }}" required>
+      <label for="no_hp">No Hp</label>
+      <input type="number" id="no_hp" name="no_hp" value="{{ old('no_hp') }}" required>
 
       <label for="alamat">Alamat</label>
       <textarea id="alamat" name="alamat" rows="3" required>{{ old('alamat') }}</textarea>
 
       <div class="buttons">
         <button type="submit" class="btn btn-submit">Simpan</button>
-        <a href="{{ route('admin.penitipan') }}" class="btn btn-cancel">Batal</a>
+        <a href="{{ route('admin.packing') }}" class="btn btn-cancel">Batal</a>
       </div>
     </form>
   </div>

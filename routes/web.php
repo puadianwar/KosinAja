@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\PenitipanController;
+use App\Http\Controllers\PackingController;
 
 
 /*
@@ -55,7 +56,8 @@ Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
 
 //Penitipan 
 
-    Route::get('/admin/tambah_penitipan', [LoginRegisterController::class, 'tambahPenitipan'])->name('admin.tambah_penitipan');
+    Route::get('/admin/tambah_penitipan', [PenitipanController::class, 'tambahPenitipan'])->name('admin.tambah_penitipan');
+    Route::post('/admin/tambah_penitipan', [PenitipanController::class, 'store'])->name('admin.tambah_penitipan');
     Route::delete('/admin/penitipan/{id}', [PenitipanController::class, 'deletPenitipan'])->name('admin.delet_penitipan');
     // Tampilkan form edit
     Route::get('/admin/edit_penitipan/{id}', [PenitipanController::class, 'edit'])->name('admin.edit_penitipan');
@@ -63,7 +65,14 @@ Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
     Route::put('/admin/update_penitipan/{id}', [PenitipanController::class, 'update'])->name('admin.update_penitipan');
     Route::get('/admin/penitipan/{id}/detail', [PenitipanController::class, 'show'])->name('admin.detail_penitipan');
 
-
+// packing
+   Route::get('/admin/packing', [LoginRegisterController::class, 'adminPacking'])->name('admin.packing');
+   Route::get('/admin/tambah_packing', [LoginRegisterController::class, 'tambahPacking'])->name('admin.tambah_packing');
+   Route::post('/admin/tambah_packing', [LoginRegisterController::class, 'storePacking']);
+   Route::delete('/admin/packing/{id}', [PackingController::class, 'deletPacking'])->name('admin.delet_packing');
+   Route::get('/admin/edit_packing/{id}', [PackingController::class, 'edit'])->name('admin.edit_packing');
+   Route::put('/admin/update_packing/{id}', [PackingController::class, 'update'])->name('admin.update_packing');
+   Route::get('/admin/packing/{id}/detail', [PackingController::class, 'show'])->name('admin.detail_packing');
 
 
 Route::group(['middleware' => ['auth', 'checklevel:user']], function () {

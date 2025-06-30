@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth; 
 use App\Models\User; 
 use App\Models\Penitipan;
+use App\Models\Packing;
 
 
 class LoginRegisterController extends Controller
@@ -34,6 +35,30 @@ class LoginRegisterController extends Controller
     {
         return view('admin.tambah_penitipan'); // Buat file view ini
     }
+        public function adminPacking(){
+        $data = Packing::all(); // ambil semua data 
+        return view('admin.packing', compact('data'));
+    }
+    public function tambahPacking()
+    {
+        return view('admin.tambah_packing'); // Buat file view ini
+    }
+    public function storePacking(Request $request)
+{
+    $request->validate([
+        'nama' => 'required',
+        'alamat' => 'required',
+        'no_hp' => 'required'
+    ]);
+
+    Packing::create([
+        'nama' => $request->nama,
+        'alamat' => $request->alamat,
+        'no_hp' => $request->no_hp
+    ]);
+
+    return redirect('/admin/packing')->with('success', 'Data packing berhasil ditambahkan.');
+}
 
 
     public function postRegister(Request $request) 
