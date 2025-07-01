@@ -29,7 +29,7 @@ class PackingController extends Controller
         ]);
 
 
-        Penitipan::create($request->all());
+        Packing::create($request->all());
         return redirect()->route('admin.packing')->with('success', 'Data berhasil ditambahkan.');
     }
 
@@ -48,16 +48,16 @@ class PackingController extends Controller
             'alamat' => 'required'
         ]);
 
-        $penitipan = Packing::findOrFail($id);
-        $penitipan->update($request->all());
+        $packing = Packing::findOrFail($id);
+        $packing->update($request->all());
 
         return redirect()->route('admin.packing')->with('success', 'Data berhasil diperbarui!');
     }
 
     public function deletPacking($id)
     {
-        $penitipan = Packing::findOrFail($id);
-        $penitipan->delete();
+        $packing = Packing::findOrFail($id);
+        $packing->delete();
         
         return redirect()->route('admin.packing')->with('success', 'Data berhasil dihapus.');
     }

@@ -141,7 +141,7 @@
       <a href="{{ route('admin.history') }}" class="nav-item"><i class="fa fa-clock-rotate-left"></i> History</a>
       <a href="{{ route('admin.penitipan') }}" class="nav-item"><i class="fa fa-box"></i> Penitipan</a>
       <a href="{{ route('admin.packing') }}" class="nav-item"><i class="fa fa-box-open"></i> Packing</a>
-      <a href="#" class="nav-item"><i class="fa fa-truck-moving"></i> Angkut</a>
+      <a href="{{ route('admin.angkut') }}" class="nav-item"><i class="fa fa-truck-moving"></i> Angkut</a>
       <a href="{{ route('admin.pelanggan') }}" class="nav-item"><i class="fa fa-users"></i> Pelanggan</a>
     </div>
   </div>

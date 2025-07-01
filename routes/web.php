@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\PenitipanController;
 use App\Http\Controllers\PackingController;
+use App\Http\Controllers\AngkutController;
 
 
 /*
@@ -73,6 +74,15 @@ Route::group(['middleware' => ['auth', 'checklevel:admin']], function () {
    Route::get('/admin/edit_packing/{id}', [PackingController::class, 'edit'])->name('admin.edit_packing');
    Route::put('/admin/update_packing/{id}', [PackingController::class, 'update'])->name('admin.update_packing');
    Route::get('/admin/packing/{id}/detail', [PackingController::class, 'show'])->name('admin.detail_packing');
+
+// angkut
+   Route::get('/admin/angkut', [LoginRegisterController::class, 'adminAngkut'])->name('admin.angkut');
+   Route::get('/admin/tambah_angkut', [LoginRegisterController::class, 'tambahAngkut'])->name('admin.tambah_angkut');
+   Route::post('/admin/tambah_angkut', [LoginRegisterController::class, 'storeAngkut']);
+   Route::delete('/admin/angkut/{id}', [AngkutController::class, 'deletAngkut'])->name('admin.delet_angkut');
+   Route::get('/admin/edit_angkut/{id}', [AngkutController::class, 'edit'])->name('admin.edit_angkut');
+   Route::put('/admin/update_angkut/{id}', [AngkutController::class, 'update'])->name('admin.update_angkut');
+   Route::get('/admin/angkut/{id}/detail', [AngkutController::class, 'show'])->name('admin.detail_angkut');
 
 
 Route::group(['middleware' => ['auth', 'checklevel:user']], function () {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Packing Barang - KosinAja</title>
+  <title>Angkut Barang - KosinAja</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
@@ -152,7 +152,7 @@
       <a href="{{ route('logout') }}" class="logout-button">Logout</a>
     </div>
 
-    <h2>Daftar Packing Barang</h2>
+    <h2>Daftar Angkut Barang</h2>
 
     @if(session('success'))
       <div class="alert-success">
@@ -160,7 +160,7 @@
       </div>
     @endif
 
-    <a href="{{ route('admin.tambah_packing') }}" class="btn-tambah"><i class="fa fa-plus"></i> Tambah Packing</a>
+    <a href="{{ route('admin.tambah_angkut') }}" class="btn-tambah"><i class="fa fa-plus"></i> Tambah Angkut</a>
 
     <table>
       <thead>
@@ -182,11 +182,11 @@
             <td>{{ $item->alamat }}</td>
             <td>
               <div class="btn-group">
-                <a href="{{ route('admin.detail_packing', $item->id) }}" class="btn btn-detail" title="Detail"><i class="fa fa-magnifying-glass"></i></a>
-                <a href="{{ route('admin.edit_packing', $item->id) }}" class="btn btn-edit" title="Edit">
+                <a href="{{ route('admin.detail_angkut', $item->id) }}" class="btn btn-detail" title="Detail"><i class="fa fa-magnifying-glass"></i></a>
+                <a href="{{ route('admin.edit_angkut', $item->id) }}" class="btn btn-edit" title="Edit">
                   <i class="fa fa-pen"></i>
                 </a>
-                <form action="{{ route('admin.delet_packing', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')" style="display:inline;">
+                <form action="{{ route('admin.delet_angkut', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')" style="display:inline;">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-delete" title="Delete">

@@ -27,14 +27,14 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($packings as $index => $packing)
+            @forelse($angkuts as $index => $angkut)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $packing->nama_barang }}</td>
-                <td>{{ $packing->pemilik }}</td>
-                <td>{{ $packing->tanggal_titip }}</td>
+                <td>{{ $angkut->nama_barang }}</td>
+                <td>{{ $angkut->pemilik }}</td>
+                <td>{{ $angkut->tanggal_titip }}</td>
                 <td>
-                    <form action="{{ route('packing.destroy', $ppacking->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                    <form action="{{ route('angkut.destroy', $angkut->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

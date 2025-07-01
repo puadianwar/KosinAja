@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Packing Barang - KosinAja</title>
+  <title>Edit Angkut - KosinAja</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
@@ -75,59 +75,67 @@
       color: #333;
     }
 
-    .btn-tambah {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 10px 16px;
-      background-color: #28a745;
-      color: white;
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
       font-weight: 600;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s;
     }
 
-    .btn-tambah:hover { background-color: #218838; }
-
-    table {
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
       width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th, td {
+      padding: 10px;
       border: 1px solid #ccc;
-      padding: 12px;
-      text-align: center;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
     }
 
-    th { background-color: #eee; }
-
-    .btn-group {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
+    textarea {
+      resize: vertical;
+      min-height: 80px;
     }
 
     .btn {
-      padding: 6px 10px;
+      display: inline-block;
+      padding: 10px 16px;
+      font-weight: 600;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
       color: white;
     }
 
-    .btn-edit { background-color: #ff5555; }
-    .btn-delete { background-color: #e60000; }
-    .btn-detail { background-color: #007bff; }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
 
-    .alert-success {
-      padding: 12px;
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #565e64;
+    }
+
+    .alert {
+      padding: 10px;
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      border-radius: 6px;
       margin-bottom: 20px;
-      border-radius: 5px;
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
     }
   </style>
 </head>
@@ -152,53 +160,47 @@
       <a href="{{ route('logout') }}" class="logout-button">Logout</a>
     </div>
 
-    <h2>Daftar Packing Barang</h2>
+    <h2>Edit Penitipan</h2>
 
-    @if(session('success'))
-      <div class="alert-success">
+    @if ($errors->any())
+      <div class="alert">
+        <strong>Terjadi kesalahan:</strong>
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+    @if (session('success'))
+      <div class="alert alert-success">
         {{ session('success') }}
       </div>
     @endif
 
-    <a href="{{ route('admin.tambah_packing') }}" class="btn-tambah"><i class="fa fa-plus"></i> Tambah Packing</a>
+    <form action="{{ route('admin.update_angkut', $data->id) }}" method="POST">
+      @csrf
+      @method('PUT')
 
-    <table>
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Nama</th>
-          <th>No_Hp</th>
-          <th>Alamat</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        @php $no = 1; @endphp
-        @foreach ($data as $item)
-          <tr>
-            <td>{{ $no++ }}</td>
-            <td>{{ $item->nama }}</td>
-            <td>{{ $item->no_hp }}</td>
-            <td>{{ $item->alamat }}</td>
-            <td>
-              <div class="btn-group">
-                <a href="{{ route('admin.detail_packing', $item->id) }}" class="btn btn-detail" title="Detail"><i class="fa fa-magnifying-glass"></i></a>
-                <a href="{{ route('admin.edit_packing', $item->id) }}" class="btn btn-edit" title="Edit">
-                  <i class="fa fa-pen"></i>
-                </a>
-                <form action="{{ route('admin.delet_packing', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')" style="display:inline;">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-delete" title="Delete">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </form>
-              </div>
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
+      <div class="form-group">
+        <label>Nama</label>
+        <input type="text" name="nama" value="{{ old('nama', $data->nama) }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>No Hp</label>
+        <input type="number" name="no_hp" value="{{ old('no_hp', $data->no_ho) }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Alamat</label>
+        <textarea name="alamat" required>{{ old('alamat', $data->alamat) }}</textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a href="{{ route('admin.angkut') }}" class="btn btn-secondary">Batal</a>
+    </form>
   </div>
 
 </body>

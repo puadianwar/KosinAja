@@ -28,7 +28,7 @@
 <body>
 
   <div class="container">
-    <h2>Detail Packing</h2>
+    <h2>Detail ANgkut</h2>
 
     <div class="detail-group">
       <span class="label">Nama</span>
@@ -55,7 +55,7 @@
       <div class="value">{{ $data->alamat }}</div>
     </div>
 
-    <a href="{{ route('admin.packing') }}" class="back-button"><i class="fa fa-arrow-left"></i> Kembali</a>
+    <a href="{{ route('admin.angkut') }}" class="back-button"><i class="fa fa-arrow-left"></i> Kembali</a>
   </div>
 
 </body>
